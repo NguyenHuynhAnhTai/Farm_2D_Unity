@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 4;
     
     public Animator animator;
+    
+    private Vector3 _direction;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
     private static readonly int Vertical = Animator.StringToHash("Vertical");
-    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
     private void Update()
     {
@@ -18,21 +18,26 @@ public class Movement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         //apply movement to sprite
-        Vector3 direction = new Vector3(horizontal, vertical);
-        AnimateMovement(direction);
+        _direction = new Vector3(horizontal, vertical, 0);
+        AnimateMovement(_direction);
         
-        transform.position += direction * (speed * Time.deltaTime);
+        
     }
-    
-    void AnimateMovement(Vector3 direction)
+
+    private void FixedUpdate()
+    {
+        this.transform.position += _direction.normalized * (speed * Time.deltaTime);
+    }
+
+    void AnimateMovement(Vector3 vectorDirection)
     {
         if (animator is not null)
         {
-            if (direction.magnitude > 0)
+            if (vectorDirection.magnitude > 0)
             {
                 animator.SetBool(IsMoving, true);
-                animator.SetFloat(Horizontal, direction.x);
-                animator.SetFloat(Vertical, direction.y);
+                animator.SetFloat(Horizontal, vectorDirection.x);
+                animator.SetFloat(Vertical, vectorDirection.y);
             }
             else
             {
