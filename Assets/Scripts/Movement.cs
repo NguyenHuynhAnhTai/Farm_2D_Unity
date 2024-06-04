@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 4;
+    public float speed;
     
     public Animator animator;
     
