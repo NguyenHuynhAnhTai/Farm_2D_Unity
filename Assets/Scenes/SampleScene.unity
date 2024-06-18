@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 161138763}
   m_Layer: 0
   m_Name: Visuals
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +239,8 @@ GameObject:
   m_Component:
   - component: {fileID: 370256740}
   - component: {fileID: 370256739}
+  - component: {fileID: 370256741}
+  - component: {fileID: 370256742}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -313,6 +315,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1927942903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370256741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370256738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57bbe68a233f3e469f3c4d75233741e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delaySecond: 2
+  nameScene: BedroomScene
+--- !u!61 &370256742
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370256738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.21, y: 0.27}
+    newSize: {x: 0.21, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21, y: 0.27}
+  m_EdgeRadius: 0
 --- !u!1 &401647704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +3967,7 @@ GameObject:
   - component: {fileID: 1151577008}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4001,7 +4062,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003635481, y: 0.0013594739}
+  m_Offset: {x: -0.015252858, y: -0.05672741}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4012,7 +4073,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12505534, y: 0.19479063}
+  m_Size: {x: 0.6362197, y: 1.0777109}
   m_EdgeRadius: 0
 --- !u!114 &1151577008
 MonoBehaviour:
@@ -23295,8 +23356,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1927942906
-BoxCollider2D:
+--- !u!68 &1927942906
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23327,19 +23388,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016209185, y: -0.30399022}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.82, y: 0.92}
-    newSize: {x: 0.82, y: 0.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.69681084, y: 0.4201054}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.37480727, y: -0.14385365}
+  - {x: 0.3340435, y: -0.08919695}
+  - {x: -0.33736005, y: -0.07274711}
+  - {x: -0.33174485, y: -0.44292554}
+  - {x: -0.095108196, y: -0.4423681}
+  - {x: -0.09130008, y: -0.24214938}
+  - {x: 0.08488295, y: -0.24600144}
+  - {x: 0.092526376, y: -0.43688327}
+  - {x: 0.30440018, y: -0.43156093}
+  - {x: 0.33733273, y: -0.1362824}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &2056062559
 GameObject:
   m_ObjectHideFlags: 0
