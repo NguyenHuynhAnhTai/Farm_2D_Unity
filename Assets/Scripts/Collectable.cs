@@ -3,21 +3,31 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public float respawnTime = 60f;
-    
+    [SerializeField]
+    public string collectableName;
+    [SerializeField]
+    public float respawnTime;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
         if (player)
         {
-            player.numberOfCarrotSeeds++;
-            
+            if (collectableName == "Pumpkins")
+            {
+                player.numberOfPumpkins++;
+            }
+            else if (collectableName == "Beans")
+            {
+                player.numberOfBeans++;
+            }
+
             gameObject.SetActive(false);
-        
+
             RespawnManager.Instance.StartRespawnCoroutine(Respawn());
         }
     }
-    
+
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTime);
