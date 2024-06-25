@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BedroomScene.unity
     guid: 2ea0d9e6e92ad59408e12abd97e1d7f4
+  - enabled: 1
+    path: Assets/Scenes/Fishing Sence.unity
+    guid: e8c069ae1fccb524996fb488fb8bcc40
   m_configObjects: {}
