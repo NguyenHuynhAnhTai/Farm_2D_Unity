@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fishing Sence.unity
     guid: e8c069ae1fccb524996fb488fb8bcc40
+  - enabled: 1
+    path: Assets/Scenes/GameObject.unity
+    guid: 16294649a2794f74ca3fa5bf7440a262
   m_configObjects: {}
