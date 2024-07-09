@@ -8,22 +8,16 @@ public class Collectable : MonoBehaviour
     [SerializeField]
     public float respawnTime;
 
+    public CollectibleType type;
+    public Sprite icon;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
         if (player)
         {
-            if (collectableName == "Pumpkins")
-            {
-                player.numberOfPumpkins++;
-            }
-            else if (collectableName == "Beans")
-            {
-                player.numberOfBeans++;
-            }
-
-            gameObject.SetActive(false);
-
+            player.inventory.Add(this);
+            Destroy(this.gameObject);
             RespawnManager.Instance.StartRespawnCoroutine(Respawn());
         }
     }
@@ -32,5 +26,12 @@ public class Collectable : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTime);
         gameObject.SetActive(true);
+    }
+
+    public enum CollectibleType
+    {
+        NONE,
+        PUMPKIN,
+        BEAN
     }
 }
