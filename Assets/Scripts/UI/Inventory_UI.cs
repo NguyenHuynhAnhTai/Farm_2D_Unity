@@ -8,6 +8,11 @@ public class Inventory_UI : MonoBehaviour
     public GameObject InventoryPanel;
     public Player player;
     public List<Slot_UI> slots = new();
+
+    void Start()
+    {
+        InventoryPanel.SetActive(false);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
